@@ -36,8 +36,8 @@ func (w WebMenu) ToType() string {
 		val = WebMenuOfTypeVSpa
 	case WebMenuOfTypeKTreatment:
 		val = WebMenuOfTypeVTreatment
-	case WebMenuOfTypeKHairColor:
-		val = WebMenuOfTypeVHairColor
+	case WebMenuOfTypeKColor:
+		val = WebMenuOfTypeVColor
 	case WebMenuOfTypeKPerm:
 		val = WebMenuOfTypeVPerm
 	case WebMenuOfTypeKStraightPerm:
@@ -54,7 +54,7 @@ const (
 	WebMenuOfTypeKStyling      = "styling"
 	WebMenuOfTypeKSpa          = "spa"
 	WebMenuOfTypeKTreatment    = "treatment"
-	WebMenuOfTypeKHairColor    = "hair_color"
+	WebMenuOfTypeKColor        = "color"
 	WebMenuOfTypeKPerm         = "perm"
 	WebMenuOfTypeKStraightPerm = "straight_perm"
 )
@@ -64,7 +64,7 @@ const (
 	WebMenuOfTypeVStyling      = "STYLING"
 	WebMenuOfTypeVSpa          = "SPA"
 	WebMenuOfTypeVTreatment    = "TREATMENT"
-	WebMenuOfTypeVHairColor    = "HAIR COLOR"
+	WebMenuOfTypeVColor        = "COLOR"
 	WebMenuOfTypeVPerm         = "PERM"
 	WebMenuOfTypeVStraightPerm = "STRAIGHT PERM"
 )
