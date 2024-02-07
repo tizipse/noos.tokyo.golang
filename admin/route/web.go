@@ -32,6 +32,20 @@ func WebRouter(router *server.Hertz) {
 			member.PUT("enable", middleware.Permission("web.member.enable"), web.DoMemberOfEnable)
 		}
 
+		originals := route.Group("originals")
+		{
+			originals.GET(":id", web.ToOriginalOfInformation)
+			originals.GET("", middleware.Permission("web.original.paginate"), web.ToOriginalOfPaginate)
+			originals.PUT(":id", middleware.Permission("web.original.update"), web.DoOriginalOfUpdate)
+			originals.DELETE(":id", middleware.Permission("web.original.delete"), web.DoOriginalOfDelete)
+		}
+
+		original := route.Group("original")
+		{
+			original.POST("", middleware.Permission("web.original.create"), web.DoOriginalOfCreate)
+			original.PUT("enable", middleware.Permission("web.original.enable"), web.DoOriginalOfEnable)
+		}
+
 		banners := route.Group("banners")
 		{
 			banners.GET("", middleware.Permission("web.banner.paginate"), web.ToBannerOfPaginate)
@@ -45,6 +59,32 @@ func WebRouter(router *server.Hertz) {
 			banner.PUT("enable", middleware.Permission("web.banner.enable"), web.DoBannerOfEnable)
 		}
 
+		links := route.Group("links")
+		{
+			links.GET("", middleware.Permission("web.link.paginate"), web.ToLinkOfPaginate)
+			links.PUT(":id", middleware.Permission("web.link.update"), web.DoLinkOfUpdate)
+			links.DELETE(":id", middleware.Permission("web.link.delete"), web.DoLinkOfDelete)
+		}
+
+		link := route.Group("link")
+		{
+			link.POST("", middleware.Permission("web.link.create"), web.DoLinkOfCreate)
+			link.PUT("enable", middleware.Permission("web.link.enable"), web.DoLinkOfEnable)
+		}
+
+		recruits := route.Group("recruits")
+		{
+			recruits.GET("", middleware.Permission("web.recruit.paginate"), web.ToRecruitOfPaginate)
+			recruits.PUT(":id", middleware.Permission("web.recruit.update"), web.DoRecruitOfUpdate)
+			recruits.DELETE(":id", middleware.Permission("web.recruit.delete"), web.DoRecruitOfDelete)
+		}
+
+		recruit := route.Group("recruit")
+		{
+			recruit.POST("", middleware.Permission("web.recruit.create"), web.DoRecruitOfCreate)
+			recruit.PUT("enable", middleware.Permission("web.recruit.enable"), web.DoRecruitOfEnable)
+		}
+
 		menus := route.Group("menus")
 		{
 			menus.GET("", middleware.Permission("web.menu.paginate"), web.ToMenuOfPaginate)
@@ -56,6 +96,19 @@ func WebRouter(router *server.Hertz) {
 		{
 			menu.POST("", middleware.Permission("web.menu.create"), web.DoMenuOfCreate)
 			menu.PUT("enable", middleware.Permission("web.menu.enable"), web.DoMenuOfEnable)
+		}
+
+		pages := route.Group("pages")
+		{
+			pages.GET("", middleware.Permission("web.page.paginate"), web.ToPageOfPaginate)
+			pages.PUT(":id", middleware.Permission("web.page.update"), web.DoPageOfUpdate)
+			pages.DELETE(":id", middleware.Permission("web.page.delete"), web.DoPageOfDelete)
+			pages.GET(":id", web.ToPageOfInformation)
+		}
+
+		page := route.Group("page")
+		{
+			page.POST("", middleware.Permission("web.page.create"), web.DoPageOfCreate)
 		}
 
 		titles := route.Group("titles")

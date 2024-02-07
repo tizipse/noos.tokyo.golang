@@ -3,7 +3,7 @@
 create table `web_html`
 (
     `id`         int unsigned not null auto_increment,
-    `channel`    varchar(20)  not null default '' comment '渠道：member=成员',
+    `channel`    varchar(20)  not null default '' comment '渠道：member=成员；original=产品',
     `channel_id` varchar(64)  not null comment '渠道 ID',
     `content`    text comment '内容',
     `created_at` timestamp    not null default CURRENT_TIMESTAMP,

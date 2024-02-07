@@ -15,6 +15,16 @@ func WebRouter(routes *server.Hertz) {
 			banner.GET("opening", web.ToBannerOfOpening)
 		}
 
+		recruit := route.Group("recruit")
+		{
+			recruit.GET("opening", web.ToRecruitOfOpening)
+		}
+
+		link := route.Group("link")
+		{
+			link.GET("opening", web.ToLinkOfOpening)
+		}
+
 		menu := route.Group("menu")
 		{
 			menu.GET("opening", web.ToMenuOfOpening)
@@ -35,9 +45,24 @@ func WebRouter(routes *server.Hertz) {
 			member.GET("opening", web.ToMemberOfOpening)
 		}
 
+		originals := route.Group("originals")
+		{
+			originals.GET(":id", web.ToOriginalOfInformation)
+		}
+
+		original := route.Group("original")
+		{
+			original.GET("opening", web.ToOriginalOfOpening)
+		}
+
 		seo := route.Group("seo")
 		{
 			seo.GET("", web.ToSEO)
+		}
+
+		page := route.Group("page")
+		{
+			page.GET("", web.ToPage)
 		}
 
 		setting := route.Group("setting")

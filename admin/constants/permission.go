@@ -39,8 +39,101 @@ var Permissions = []auth.Permission{
 				},
 			},
 			{
+				Code: "original",
+				Name: "产品",
+				Children: []auth.Permission{
+					{
+						Code:   "create",
+						Name:   "创建",
+						Common: true,
+					},
+					{
+						Code:   "update",
+						Name:   "修改",
+						Common: true,
+					},
+					{
+						Code:   "enable",
+						Name:   "启禁",
+						Common: true,
+					},
+					{
+						Code:   "delete",
+						Name:   "删除",
+						Common: true,
+					},
+					{
+						Code:   "paginate",
+						Name:   "列表",
+						Common: true,
+					},
+				},
+			},
+			{
 				Code: "banner",
 				Name: "轮播",
+				Children: []auth.Permission{
+					{
+						Code:   "create",
+						Name:   "创建",
+						Common: true,
+					},
+					{
+						Code:   "update",
+						Name:   "修改",
+						Common: true,
+					},
+					{
+						Code:   "enable",
+						Name:   "启禁",
+						Common: true,
+					},
+					{
+						Code:   "delete",
+						Name:   "删除",
+						Common: true,
+					},
+					{
+						Code:   "paginate",
+						Name:   "列表",
+						Common: true,
+					},
+				},
+			},
+			{
+				Code: "link",
+				Name: "链接",
+				Children: []auth.Permission{
+					{
+						Code:   "create",
+						Name:   "创建",
+						Common: true,
+					},
+					{
+						Code:   "update",
+						Name:   "修改",
+						Common: true,
+					},
+					{
+						Code:   "enable",
+						Name:   "启禁",
+						Common: true,
+					},
+					{
+						Code:   "delete",
+						Name:   "删除",
+						Common: true,
+					},
+					{
+						Code:   "paginate",
+						Name:   "列表",
+						Common: true,
+					},
+				},
+			},
+			{
+				Code: "recruit",
+				Name: "招聘",
 				Children: []auth.Permission{
 					{
 						Code:   "create",
@@ -86,6 +179,32 @@ var Permissions = []auth.Permission{
 					{
 						Code:   "enable",
 						Name:   "启禁",
+						Common: true,
+					},
+					{
+						Code:   "delete",
+						Name:   "删除",
+						Common: true,
+					},
+					{
+						Code:   "paginate",
+						Name:   "列表",
+						Common: true,
+					},
+				},
+			},
+			{
+				Code: "page",
+				Name: "页面管理",
+				Children: []auth.Permission{
+					{
+						Code:   "create",
+						Name:   "创建",
+						Common: true,
+					},
+					{
+						Code:   "update",
+						Name:   "修改",
 						Common: true,
 					},
 					{

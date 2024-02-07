@@ -1,5 +1,7 @@
 package web
 
 const (
-	ChannelOfMember = "member"
+	ChannelOfMember   = "member"
+	ChannelOfOriginal = "original"
+	ChannelOfPage     = "page"
 )

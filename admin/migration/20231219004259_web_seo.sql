@@ -3,7 +3,7 @@
 create table `web_seo`
 (
     `id`          int unsigned not null auto_increment,
-    `channel`     varchar(20)  not null default '' comment '渠道：member=成员',
+    `channel`     varchar(20)  not null default '' comment '渠道：member=成员；original=产品；page=页面',
     `channel_id`  varchar(64)  not null comment '渠道 ID',
     `title`       varchar(255) not null default '' comment '标题',
     `keyword`     varchar(255) not null default '' comment '关键词',
