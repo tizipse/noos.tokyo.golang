@@ -35,7 +35,7 @@ func ToRoleByPaginate(c context.Context, ctx *app.RequestContext) {
 	tx := facades.Gorm.WithContext(c)
 
 	if ok, _ := facades.Casbin.HasRoleForUser(auth.NameOfUser(authorize.ID(ctx)), auth.NameOfRoleWithDeveloper()); !ok {
-		tx = tx.Where("`role_id`<>?", authConstants.CodeOfDeveloper)
+		tx = tx.Where("`id`<>?", authConstants.CodeOfDeveloper)
 	}
 
 	tx.Model(&model.SysRole{}).Count(&responses.Total)

@@ -195,7 +195,7 @@ var Permissions = []auth.Permission{
 			},
 			{
 				Code: "page",
-				Name: "页面管理",
+				Name: "页面",
 				Children: []auth.Permission{
 					{
 						Code:   "create",
