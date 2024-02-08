@@ -27,6 +27,7 @@ func DoLinkOfCreate(c context.Context, ctx *app.RequestContext) {
 		Summary:  request.Summary,
 		URL:      request.URL,
 		Order:    request.Order.Order,
+		IsSystem: model.WebLinkOfIsSystemNO,
 		IsEnable: request.IsEnable,
 	}
 

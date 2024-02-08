@@ -20,10 +20,11 @@ func ToLinkOfOpening(c context.Context, ctx *app.RequestContext) {
 
 	for idx, item := range links {
 		responses[idx] = res.ToLinkOfOpening{
-			ID:      item.ID,
-			Name:    item.Name,
-			Summary: item.Summary,
-			URL:     item.URL,
+			ID:       item.ID,
+			Name:     item.Name,
+			Summary:  item.Summary,
+			URL:      item.URL,
+			IsSystem: item.IsSystem,
 		}
 	}
 
