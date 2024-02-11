@@ -8,7 +8,7 @@ type DoMemberOfCreate struct {
 	Nickname    string `json:"nickname" form:"nickname" valid:"required,max=120" label:"别称"`
 	Thumb       string `json:"thumb" form:"thumb" valid:"required,max=255,url" label:"头像"`
 	INS         string `json:"ins" form:"ins" valid:"omitempty,max=255" label:"INS"`
-	IsDelegate  uint8  `json:"is_delegate" form:"is_delegate" valid:"required,oneof=1 2" label:"是否代表"`
+	Level       string `json:"level" form:"level" valid:"omitempty,oneof=delegate majordomo" label:"级别"`
 	Title       string `json:"title" form:"title" valid:"omitempty,max=255" label:"标题"`
 	Keyword     string `json:"keyword" form:"keyword" valid:"omitempty,max=255" label:"词组"`
 	Description string `json:"description" form:"description" valid:"omitempty,max=255" label:"描述"`
@@ -24,7 +24,7 @@ type DoMemberOfUpdate struct {
 	Nickname    string `json:"nickname" form:"nickname" valid:"required,max=120" label:"别称"`
 	Thumb       string `json:"thumb" form:"thumb" valid:"required,max=255,url" label:"头像"`
 	INS         string `json:"ins" form:"ins" valid:"omitempty,max=255" label:"INS"`
-	IsDelegate  uint8  `json:"is_delegate" form:"is_delegate" valid:"required,oneof=1 2" label:"是否代表"`
+	Level       string `json:"level" form:"level" valid:"omitempty,oneof=delegate majordomo" label:"级别"`
 	Title       string `json:"title" form:"title" valid:"omitempty,max=255" label:"标题"`
 	Keyword     string `json:"keyword" form:"keyword" valid:"omitempty,max=255" label:"词组"`
 	Description string `json:"description" form:"description" valid:"omitempty,max=255" label:"描述"`

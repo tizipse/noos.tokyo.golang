@@ -41,15 +41,15 @@ func DoMemberOfCreate(c context.Context, ctx *app.RequestContext) {
 	tx := facades.Gorm.Begin()
 
 	member := model.WebMember{
-		ID:         facades.Snowflake.Generate().String(),
-		TitleID:    request.TitleID,
-		Name:       request.Name,
-		Nickname:   request.Nickname,
-		Thumb:      request.Thumb,
-		INS:        request.INS,
-		Order:      request.Order.Order,
-		IsDelegate: request.IsDelegate,
-		IsEnable:   request.IsEnable,
+		ID:       facades.Snowflake.Generate().String(),
+		TitleID:  request.TitleID,
+		Name:     request.Name,
+		Nickname: request.Nickname,
+		Thumb:    request.Thumb,
+		INS:      request.INS,
+		Level:    request.Level,
+		Order:    request.Order.Order,
+		IsEnable: request.IsEnable,
 	}
 
 	if result := tx.Create(&member); result.Error != nil {
@@ -147,7 +147,7 @@ func DoMemberOfUpdate(c context.Context, ctx *app.RequestContext) {
 	member.Thumb = request.Thumb
 	member.INS = request.INS
 	member.Order = request.Order.Order
-	member.IsDelegate = request.IsDelegate
+	member.Level = request.Level
 	member.IsEnable = request.IsEnable
 
 	if ua := tx.Omit(clause.Associations).Save(&member); ua.Error != nil {
@@ -269,15 +269,15 @@ func ToMemberOfInformation(c context.Context, ctx *app.RequestContext) {
 	}
 
 	responses := res.ToMemberOfInformation{
-		ID:         member.ID,
-		TitleID:    member.TitleID,
-		Name:       member.Name,
-		Nickname:   member.Nickname,
-		Thumb:      member.Thumb,
-		INS:        member.INS,
-		Order:      member.Order,
-		IsDelegate: member.IsDelegate,
-		IsEnable:   member.IsEnable,
+		ID:       member.ID,
+		TitleID:  member.TitleID,
+		Name:     member.Name,
+		Nickname: member.Nickname,
+		Thumb:    member.Thumb,
+		INS:      member.INS,
+		Level:    member.Level,
+		Order:    member.Order,
+		IsEnable: member.IsEnable,
 	}
 
 	if member.SEO != nil {
@@ -327,13 +327,13 @@ func ToMemberOfPaginate(c context.Context, ctx *app.RequestContext) {
 		for idx, item := range members {
 
 			responses.Data[idx] = res.ToMemberOfPaginate{
-				ID:         item.ID,
-				Name:       item.Name,
-				Nickname:   item.Nickname,
-				Order:      item.Order,
-				IsDelegate: item.IsDelegate,
-				IsEnable:   item.IsEnable,
-				CreatedAt:  item.CreatedAt.ToDateTimeString(),
+				ID:        item.ID,
+				Name:      item.Name,
+				Nickname:  item.Nickname,
+				Order:     item.Order,
+				Level:     item.Level,
+				IsEnable:  item.IsEnable,
+				CreatedAt: item.CreatedAt.ToDateTimeString(),
 			}
 
 			if item.Title != nil {

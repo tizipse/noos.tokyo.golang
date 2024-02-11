@@ -27,10 +27,10 @@ func ToMemberOfOpening(c context.Context, ctx *app.RequestContext) {
 	for idx, item := range members {
 
 		responses[idx] = res.ToMemberOfOpening{
-			ID:         item.ID,
-			Name:       item.Name,
-			Thumb:      item.Thumb,
-			IsDelegate: item.IsDelegate,
+			ID:    item.ID,
+			Name:  item.Name,
+			Thumb: item.Thumb,
+			Level: item.Level,
 		}
 
 		if item.Title != nil {
@@ -66,12 +66,12 @@ func ToMemberOfInformation(c context.Context, ctx *app.RequestContext) {
 	}
 
 	responses := res.ToMemberOfInformation{
-		ID:         member.ID,
-		Name:       member.Name,
-		Nickname:   member.Nickname,
-		Thumb:      member.Thumb,
-		INS:        member.INS,
-		IsDelegate: member.IsDelegate,
+		ID:       member.ID,
+		Name:     member.Name,
+		Nickname: member.Nickname,
+		Thumb:    member.Thumb,
+		INS:      member.INS,
+		Level:    member.Level,
 	}
 
 	if member.Title != nil {
